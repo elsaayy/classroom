@@ -9,6 +9,17 @@
                         <h4 class="card-title text-center">Table Mahasiswa</h4>
                         <a class="btn btn-primary" href="{{ route('mahasiswa.create') }}">Tambah Mahasiswa</a>
                     </div>
+                    @if (session()->has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('failed'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('failed') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card-content">
                         <div class="card-body">
                             <!-- Table with outer spacing -->
@@ -21,16 +32,23 @@
                                             <th>Nim</th>
                                             <th>No Telpon</th>
                                             <th>Alamat</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ( $mahasiswas as $mahasiswa )
+                                        @foreach ($mahasiswas as $mahasiswa)
                                             <tr>
-                                                <td>{{$loop->iteration }}</td>
-                                                <td>{{$mahasiswa->nama }}</td>
-                                                <td>{{$mahasiswa->nim }}</td>
-                                                <td>{{$mahasiswa->telepon }}</td>
-                                                <td>{{$mahasiswa->alamat }}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $mahasiswa->nama }}</td>
+                                                <td>{{ $mahasiswa->nim }}</td>
+                                                <td>{{ $mahasiswa->telepon }}</td>
+                                                <td>{{ $mahasiswa->alamat }}</td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <a class="btn btn-warning mx-1" href="{{ route('mahasiswa.edit', $mahasiswa->id)}}">Update</a>
+                                                        <a class="btn btn-danger mx-1" href="">Delete</a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

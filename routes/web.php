@@ -32,6 +32,8 @@ Route::get('/register', [registerController::class, 'index'])->name('register');
 Route::post('/regist', [registerController::class, 'store'])->name('register.store');
 
 // mahasiswa
-Route::get('/data-mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
-Route::get('/create-mahasiswa', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-Route::post('/mahasiswa', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::get('/data-mahasiswas', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::get('/create-mahasiswas', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+Route::post('/mahasiswas', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::get('/mahasiswas/{mahasiswa}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+Route::put('/mahasiswas/{mahasiswa}/update', [MahasiswaController::class, 'update'])->name('mahasiswa.update');

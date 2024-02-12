@@ -3,12 +3,13 @@
     <div class="col-md-12 col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title text-center">Create Mahasiswa</h4>
+                <h4 class="card-title text-center">Update Mahasiswa</h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
-                    <form class="form form-horizontal" method="POST" action="{{ route('mahasiswa.store') }}">
+                    <form class="form form-horizontal" method="POST" action="{{ route('mahasiswa.update', $mahasiswa->id) }}">
                         @csrf
+                        @method('PUT')
                         <div class="form-body">
                             <div class="row">
                                 <div class="col-md-4">
@@ -17,9 +18,8 @@
                                 <div class="col-md-8 form-group">
                                     <input type="text" id="nama" name="nama"
                                         class="form-control @error('nama') is invalid
-                                        
-                                    @enderror"
-                                        value="{{ old('nama') }}" placeholder="Nama">
+                                @enderror"
+                                        value="{{ old('nama') ?? $mahasiswa->nama }}" placeholder="Nama">
                                     @error('nama')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -30,8 +30,8 @@
                                 <div class="col-md-8 form-group">
                                     <input type="number" id="nim"
                                         class="form-control @error('nim') is invalid    
-                                    @enderror"
-                                        name="nim" value="{{ old('nim') }}" placeholder="Nim">
+                                @enderror"
+                                        name="nim" value="{{ old('nim') ?? $mahasiswa->nim }}" placeholder="Nim">
                                     @error('nim')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -42,8 +42,8 @@
                                 <div class="col-md-8 form-group">
                                     <input type="number" id="telepon"
                                         class="form-control @error('telepon') is invalid
-                                    @enderror"
-                                        name="telepon" value="{{ old('telepon') }}" placeholder="telepon">
+                                @enderror"
+                                        name="telepon" value="{{ old('telepon') ?? $mahasiswa->telepon }}" placeholder="telepon">
                                     @error('telepon')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -54,9 +54,8 @@
                                 <div class="col-md-8 form-group">
                                     <input type="text" id="alamat"
                                         class="form-control @error('alamat') is invalid
-                                        
-                                    @enderror"
-                                        name="alamat" value="{{ old('alamat') }}" placeholder="Alamat">
+                                @enderror"
+                                        name="alamat" value="{{ old('alamat') ?? $mahasiswa->alamat }}" placeholder="Alamat">
                                     @error('alamat')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
