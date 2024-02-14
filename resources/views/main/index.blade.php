@@ -14,6 +14,18 @@
     <div id="app">
         @include('include.sidebar')
         <div id="main">
+            <nav class="navbar navbar-expand-lg mx-auto bg-body-tertiary">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Classroom</a>
+                  <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                      <div class="nav-item avatar avatar-lg">
+                        <a class="nav-link" href="#"><img src="{{'source/assets/images/faces/5.jpg'}}" alt=""></a>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
