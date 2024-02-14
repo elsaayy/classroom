@@ -46,21 +46,21 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item active ">
-                    <a href="index.html" class='sidebar-link'>
+                <li class="sidebar-item">
+                    <a href="./dashboard" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{route('mahasiswa.index')}}" class='sidebar-link'>
+                    <a href="{{ route('mahasiswa.index') }}" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Data Mahasiswa</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-collection-fill"></i>
                         <span>Extra Components</span>

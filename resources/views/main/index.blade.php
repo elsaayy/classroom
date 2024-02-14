@@ -14,34 +14,34 @@
     <div id="app">
         @include('include.sidebar')
         <div id="main">
-            <nav class="navbar navbar-expand-lg mx-auto bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg mx-auto">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Classroom</a>
-                  <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                      <div class="nav-item avatar avatar-lg">
-                        <a class="nav-link" href="#"><img src="{{'source/assets/images/faces/5.jpg'}}" alt=""></a>
-                      </div>
-                    </ul>
-                  </div>
+                    <a class="navbar-brand" href="#">
+                        <img src="{{ asset('source/assets/images/logo/download.jpg') }}" class="me-3" alt="">
+                        Classroom
+                    </a>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <div class="nav-item avatar avatar-lg">
+                                <a class="nav-link" href="#">
+                                    <img src="{{ 'source/assets/images/faces/5.jpg' }}" alt="">
+                                </a>
+                            </div>
+                        </ul>
+                    </div>
                 </div>
-              </nav>
+            </nav>
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-
-            <div class="page-heading">
-                <h3>Dashboard Admin</h3>
-            </div>
-            
             @yield('content')
 
             @include('include.footer')
         </div>
     </div>
-    
+
     @include('include.script')
 </body>
 
