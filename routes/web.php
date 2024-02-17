@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\loginController;
-use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\registerController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\MengajarController;
+use App\Http\Controllers\registerController;
+use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::get('/create-mahasiswas', [MahasiswaController::class, 'create'])->name('
 Route::post('/mahasiswas', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
 Route::get('/mahasiswas/{mahasiswa}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
 Route::put('/mahasiswas/{mahasiswa}/update', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+
+//mengajar
+Route::get('/mengajar', [MengajarController::class, 'index'])->name('mengajar.index');

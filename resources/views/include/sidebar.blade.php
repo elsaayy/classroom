@@ -47,32 +47,49 @@
 
                 <li class="sidebar-item">
                     <a href="./dashboard" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-house-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item">
-                    <a href="{{ route('mahasiswa.index') }}" class='sidebar-link'>
-                        <i class="bi bi-stack"></i>
+                <li class="sidebar-item has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-person-fill"></i>
                         <span>Mengajar</span>
                     </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="{{route ('mengajar.index') }}" class='sidebar-link'>
+                                <i class="bi bi-folder"></i>
+                                <span class="m-0 p-1">XI RPL 1</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-collection-fill"></i>
+                        <i class="bi bi-mortarboard"></i>
                         <span>Terdaftar</span>
                     </a>
+                    <ul class="submenu">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-card-checklist"></i>
+                            <span>Daftar Tugas</span>
+                        </a>
+                    </ul>
+                </li>
 
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
-                        <span>Kelas yang diarsipkan</span>
-                    </a>
 
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-grid-1x2-fill"></i>
-                        <span>Setelan</span>
-                    </a>
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-archive-fill"></i>
+                    <span>Kelas yang diarsipkan</span>
+                </a>
+
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Setelan</span>
+                </a>
 
                 <li class="sidebar-item">
                     @auth
