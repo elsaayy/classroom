@@ -6,6 +6,7 @@ use App\Http\Controllers\MengajarController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,9 @@ Route::put('/mahasiswas/{mahasiswa}/update', [MahasiswaController::class, 'updat
 
 //mengajar
 Route::get('/mengajar', [MengajarController::class, 'index'])->name('mengajar.index');
+
+//settings
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
+Route::get('/ubahprofile', [SettingsController::class, 'editprofile'])->name('settings.editprofile');
+Route::get('/ubahpassword', [SettingsController::class, 'editpass'])->name('settings.editpass');
+

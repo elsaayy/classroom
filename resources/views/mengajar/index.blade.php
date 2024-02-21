@@ -45,15 +45,53 @@
             <div class="col-md-9 mt-0">
                 <div class="card h-100">
                     <div class="card-body d-flex align-items-center">
-                            <i class="bi bi-journal-text bg-warning rounded-circle p-4 fs-4"></i>
-                        <h5 class="card-title">Elsa Nur Sabillah memposting tugas baru: tugas 1</h5>
+                        <div class="bg-warning rounded-circle p-4 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-journal-text p-0 fs-4"></i>
+                        </div>
+                        <h5 class="card-title ms-4">Elsa Nur Sabillah memposting tugas baru: tugas 1</h5>
                     </div>
                     <div class="card-footer bg-white py-4">
-                        <a href="" class="link"> 1 komentar kelas</a>
+                        <a href="#komentar" data-bs-toggle="modal" class="text-warning">1 komentar kelas</a>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" id="komentar" tabindex="-1" aria-labelledby="titlemodal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="titlemodal">Komentar Kelas</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="avatar avatar-xl">
+                                        <img src="{{ asset('source/assets/images/faces/1.jpg') }}" alt="Face 1">
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="fw-bold ms-4 m-0">Elza Nur Sabillah</p>
+                                    <p class="ms-4 m-0">Segera ya!!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar avatar-xl">
+                                <img src="{{ asset('source/assets/images/faces/1.jpg') }}" alt="Face 1">
+                            </div>
+                            <input class="form-control ms-4" placeholder="Tambahkan Komentar Kelas...." />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Kirim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection

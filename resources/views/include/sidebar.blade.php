@@ -86,7 +86,7 @@
                     <span>Kelas yang diarsipkan</span>
                 </a>
 
-                <a href="#" class='sidebar-link'>
+                <a href="{{route ('settings.index') }}" class='sidebar-link'>
                     <i class="bi bi-gear-fill"></i>
                     <span>Setelan</span>
                 </a>

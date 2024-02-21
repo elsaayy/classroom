@@ -16,7 +16,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html"><img src="{{ asset('source/assets/images/logo/logo.svg') }}"
+                        <a href="index.html"><img src="{{ asset('source/assets/images/logo/download.jpg') }}"
                                 alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
