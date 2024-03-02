@@ -2,33 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mengajar;
-use App\Http\Requests\StoreMengajarRequest;
-use App\Http\Requests\UpdateMengajarRequest;
+use App\Models\Classes;
+use App\Http\Requests\StoreClassesRequest;
+use App\Http\Requests\UpdateClassesRequest;
 
-class MengajarController extends Controller
+class ClassesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // $mengajar = Mengajar::all();
-        return view('mengajar.index');
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function detail()
+    public function create()
     {
-        return view('mengajar.detail');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMengajarRequest $request)
+    public function store(StoreClassesRequest $request)
     {
         //
     }
@@ -36,7 +35,7 @@ class MengajarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Mengajar $mengajar)
+    public function show(Classes $classes)
     {
         //
     }
@@ -44,7 +43,7 @@ class MengajarController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Mengajar $mengajar)
+    public function edit(Classes $classes)
     {
         //
     }
@@ -52,7 +51,7 @@ class MengajarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMengajarRequest $request, Mengajar $mengajar)
+    public function update(UpdateClassesRequest $request, Classes $classes)
     {
         //
     }
@@ -60,7 +59,7 @@ class MengajarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Mengajar $mengajar)
+    public function destroy(Classes $classes)
     {
         //
     }

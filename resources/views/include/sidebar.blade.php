@@ -59,9 +59,11 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="{{route ('mengajar.index') }}" class='sidebar-link'>
-                                <i class="bi bi-folder"></i>
-                                <span class="m-0 p-1">XI RPL 1</span>
+                            <a href="{{ route('mengajar.index') }}" class='sidebar-link'>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-folder"></i>
+                                    <span class="m-0 p-1 mb-1">XI RPL 1</span>
+                                </div>
                             </a>
                         </li>
                     </ul>
@@ -73,10 +75,14 @@
                         <span>Terdaftar</span>
                     </a>
                     <ul class="submenu">
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-card-checklist"></i>
-                            <span>Daftar Tugas</span>
-                        </a>
+                        <li class="submenu-item">
+                            <a href="#" class='sidebar-link'>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-card-checklist"></i>
+                                    <span class="m-0 p-1 mb-1">Daftar Tugas</span>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -86,7 +92,7 @@
                     <span>Kelas yang diarsipkan</span>
                 </a>
 
-                <a href="{{route ('settings.index') }}" class='sidebar-link'>
+                <a href="{{ route('settings.index') }}" class='sidebar-link'>
                     <i class="bi bi-gear-fill"></i>
                     <span>Setelan</span>
                 </a>
