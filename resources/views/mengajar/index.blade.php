@@ -21,7 +21,9 @@
                             <span>{{$data->teacher}}</span>
                         </div>
                     </div>
-                    <div class="py-4 card-footer d-flex justify-content-between bg-white p-3"></div>
+                    <div class="card-footer d-flex justify-content-between bg-white p-3">
+                        <a href="{{ route('archive.index')}}" class="btn btn-secondary m-0">Arsipkan</a>
+                    </div>
                 </div>
             </div>
             @endforeach
