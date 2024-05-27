@@ -4,7 +4,7 @@
         <h4 class="card-title text-center mb-4">Ubah Password</h4>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-horizontal" method="POST">
+                <form class="form form-horizontal" action="{{route('settings.updatepass')}}" method="POST">
                     @csrf
                     <div class="form-body">
                         <div class="row">
@@ -12,7 +12,7 @@
                                 <label>Password Lama</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="passold" name="passold"
+                                <input type="password" id="passold" name="passold"
                                     class="form-control @error('passold') is invalid          
                                     @enderror"
                                     value="{{ old('passold') }}" placeholder="Password Lama">
@@ -24,7 +24,7 @@
                                 <label>Password Baru</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="passnew" name="passnew"
+                                <input type="password" id="passnew" name="passnew"
                                     class="form-control @error('passnew') is invalid          
                                     @enderror"
                                     value="{{ old('passnew') }}" placeholder="Password Baru">
@@ -36,7 +36,7 @@
                                 <label>Konfirmasi Password Baru</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="konfirmasi" name="konfirmasi"
+                                <input type="password" id="konfirmasi" name="passconfirm"
                                     class="form-control @error('konfirmasi') is invalid          
                                     @enderror"
                                     value="{{ old('konfirmasi') }}" placeholder="Konfirmasi Password Baru">

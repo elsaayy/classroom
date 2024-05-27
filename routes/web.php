@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\MengajarController;
@@ -47,15 +48,20 @@ Route::get('/mengajar', [MengajarController::class, 'index'])->name('mengajar.in
 Route::get('/mengajar/detail/{id}', [MengajarController::class, 'detail'])->name('mengajar.detail');
 Route::get('/mengajar/create', [MengajarController::class, 'create'])->name('mengajar.create');
 Route::post('/mengajar/store', [MengajarController::class, 'store'])->name('mengajar.store');
-Route::delete('/mengajar/archive/{id}', [MengajarController::class, 'delete'])->name('mengajar.delete');
+Route::delete('/mengajar/archive/{id}', [MengajarController::class, 'destroy'])->name('mengajar.destroy');
 
 //settings
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
 Route::get('/ubahprofile', [SettingsController::class, 'editprofile'])->name('settings.editprofile');
 Route::get('/ubahpassword', [SettingsController::class, 'editpass'])->name('settings.editpass');
+Route::post('/updatepass', [SettingsController::class, 'ubahpass'])->name('settings.updatepass');
+Route::post('/updateprofile', [SettingsController::class, 'updateprofile'])->name('settings.updateprofile');
 
 //students
 Route::get('/students/{id}', [StudentController::class, 'index'])->name('students.index');
 
 //archive
 Route::get('/archive', [ArchiveController::class, 'index'] )->name('archive.index');
+Route::delete('/archive/delete/{id}', [ArchiveController::class, 'destroy'])->name('archive.destroy');
+// comment
+Route::post('/mengajar/detail/{id}/comments', [CommentController::class, 'store'])->name('comments.store');

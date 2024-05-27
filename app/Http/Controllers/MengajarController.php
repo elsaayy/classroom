@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archive;
 use App\Models\Classes;
+use App\Models\Comment;
 use App\Models\Mengajar;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -17,8 +19,8 @@ class MengajarController extends Controller
      */
     public function index()
     {
-        $mengajar = Classes::all();
-        return view('mengajar.index', ['datas' => $mengajar]);
+        $datas = Classes::where('user_id', Auth::user()->id)->get();
+        return view('mengajar.index', ['datas' => $datas]);
     }
 
     /**
@@ -27,7 +29,9 @@ class MengajarController extends Controller
     public function detail($id)
     {
         $class = Classes::findOrFail($id);
-        return view('mengajar.detail', ['datas' => $class]);
+        $comment = Comment::with('users')->where('class_id', $id)->get();
+        // return $class->id;
+        return view('mengajar.detail', ['datas' => $class, 'comments' => $comment]);
     }
 
     /**
@@ -47,18 +51,28 @@ class MengajarController extends Controller
             'teacher' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|max:2048'
+            'user_id' => Auth::user()->id,
+            'image' => 'image|max:2048'
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
-        $imagePath = 'images/' . $imageName;
-        $request->image->move(public_path('images'), $imageName);
+        if ($request->image != '') {
+            $imageName = time() . '.' . $request->image->extension();
+            $imagePath = 'images/' . $imageName;
+            $request->image->move(public_path('images'), $imageName);
 
+            Classes::create([
+                'teacher' => $request->teacher,
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $imageName,
+                'token' => Str::random(5)
+            ]);
+        }
         $create = Classes::create([
             'teacher' => $request->teacher,
             'title' => $request->title,
             'description' => $request->description,
-            'image' => $imagePath,
+            'image' => $request->image,
             'token' => Str::random(5)
         ]);
 
@@ -69,35 +83,16 @@ class MengajarController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Mengajar $mengajar)
+    public function destroy($id)
     {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Mengajar $mengajar)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateMengajarRequest $request, Mengajar $mengajar)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Mengajar $mengajar)
-    {
-        //
+        $class = Classes::findOrFail($id);
+        Archive::create([
+            'teacher' => $class->teacher,
+            'description' => $class->description,
+            'title' => $class->title,
+        ]);
+        $class->delete();
+        return redirect()->route('mengajar.index')->with(['success' => 'Success']);
     }
 }

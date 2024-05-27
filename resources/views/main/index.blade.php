@@ -16,15 +16,15 @@
         <div id="main">
             <nav class="navbar navbar-expand-lg mx-auto">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{ route('dashboard') }}">
                         <img src="{{ asset('source/assets/images/logo/download.jpg') }}" class="me-3" alt="">
                         Classroom
                     </a>
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <div class="nav-item avatar avatar-lg">
-                                <a class="nav-link" href="#">
-                                    <img src="{{ 'source/assets/images/faces/5.jpg' }}" alt="">
+                                <a class="nav-link" href="{{ route('settings.index') }}">
+                                    <img src="{{ asset('images/' . Auth::user()->image) }}" style="object-fit: cover" alt="">
                                 </a>
                             </div>
                         </ul>

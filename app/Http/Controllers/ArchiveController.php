@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archive;
 use Illuminate\Http\Request;
 
 class ArchiveController extends Controller
@@ -11,7 +12,8 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        return view('archive.index');
+        $arsip = Archive::all();
+        return view('archive.index', ['datas' => $arsip]);
     }
 
     /**
@@ -57,8 +59,10 @@ class ArchiveController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Archive::findOrFail($id)->delete();
+
+        return redirect()->route('archive.index')->with(['success' => 'Success']);
     }
 }

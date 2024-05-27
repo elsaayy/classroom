@@ -6,30 +6,35 @@
     <div class="page-content">
         <section class="row">
             @foreach ($datas as $data)
-            <div class="col-md-4">
-                <div class="card border-gray-200 rounded">
-                    <div class="card-header bg-danger text-white p-3">
-                        <div class="card-title">
-                            <a href="{{ route('mengajar.detail', $data->id) }}" class="text-decoration-none text-white">{{$data->title}}</a>
-                        </div>
-                    </div>
-                    <div class="card-body py-4 px-4">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar avatar-xl me-2">
-                                <img src="{{ asset('source/assets/images/faces/1.jpg') }}" alt="Face 1">
+                <div class="col-md-4">
+                    <div class="card border-gray-200 rounded">
+                        <div class="card-header bg-danger text-white p-3">
+                            <div class="card-title">
+                                <a href="{{ route('mengajar.detail', $data->id) }}"
+                                    class="text-decoration-none text-white">{{ $data->title }}</a>
                             </div>
-                            <span>{{$data->teacher}}</span>
                         </div>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between bg-white p-3">
-                        <a href="{{ route('archive.index')}}" class="btn btn-secondary m-0">Arsipkan</a>
+                        <div class="card-body py-4 px-4">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar avatar-xl me-2">
+                                    <img src="{{ asset('source/assets/images/faces/1.jpg') }}" alt="Face 1">
+                                </div>
+                                <span>{{ $data->teacher }}</span>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-white p-3">
+                            <form action="{{ route('mengajar.destroy', $data->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-secondary m-0">Arsipkan</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </section>
         <div class="btn-plus d-flex justify-content-end">
-            <a href="{{ route('mengajar.create') }}" class="btn btn-success">tambah kelas</a>
+            <a href="{{ route('mengajar.create') }}" class="btn btn-success">Tambah kelas</a>
         </div>
     </div>
 @endsection

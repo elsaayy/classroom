@@ -87,7 +87,7 @@
                 </li>
 
 
-                <a href="#" class='sidebar-link'>
+                <a href="{{ route('archive.index') }}" class='sidebar-link'>
                     <i class="bi bi-archive-fill"></i>
                     <span>Kelas yang diarsipkan</span>
                 </a>
