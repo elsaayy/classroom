@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class dashboardController extends Controller
 {
     public function index(){
-        $datas = Classes::where('id', Auth::user()->id)->get();
+        $datas = Classes::withCount('users')->where('user_id', Auth::user()->id)->get();
         $warna = ['bg-danger', 'bg-primary', 'bg-warning', 'bg-success', 'bg-secondary'];
         $random = Arr::random($warna);
         foreach ($datas as $data) {

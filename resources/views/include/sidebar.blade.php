@@ -76,7 +76,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route ('registered.index') }}" class='sidebar-link'>
                                 <div class="d-flex align-items-center">
                                     <i class="bi bi-card-checklist"></i>
                                     <span class="m-0 p-1 mb-1">Daftar Tugas</span>
@@ -85,7 +85,6 @@
                         </li>
                     </ul>
                 </li>
-
 
                 <a href="{{ route('archive.index') }}" class='sidebar-link'>
                     <i class="bi bi-archive-fill"></i>

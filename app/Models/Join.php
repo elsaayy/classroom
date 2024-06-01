@@ -5,21 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classes extends Model
+class Join extends Model
 {
     use HasFactory;
-    protected $table = 'class';
+    protected $table = 'joined';
     protected $fillable = [
         'id',
-        'user_id',
         'description',
         'teacher',
         'title',
         'token',
+        'user_id',
         'image',
     ];
 
     public function users(){
-        return $this->hasMany(User::class, 'class_id', 'id');
+        return $this->hasMany(User::class, 'class_id', 'class_id');
     }
+
 }

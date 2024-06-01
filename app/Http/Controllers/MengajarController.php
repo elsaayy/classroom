@@ -51,7 +51,6 @@ class MengajarController extends Controller
             'teacher' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'user_id' => Auth::user()->id,
             'image' => 'image|max:2048'
         ]);
 
@@ -64,6 +63,7 @@ class MengajarController extends Controller
                 'teacher' => $request->teacher,
                 'title' => $request->title,
                 'description' => $request->description,
+                'user_id' => Auth::user()->id,
                 'image' => $imageName,
                 'token' => Str::random(5)
             ]);
@@ -72,6 +72,7 @@ class MengajarController extends Controller
             'teacher' => $request->teacher,
             'title' => $request->title,
             'description' => $request->description,
+            'user_id' => Auth::user()->id,
             'image' => $request->image,
             'token' => Str::random(5)
         ]);
