@@ -11,9 +11,9 @@
                 <div class="avatar avatar-md">
                     <img src="{{ asset('source/assets/images/faces/1.jpg') }}" alt="Face 1">
                     <div class="ms-3 name">
-                        @foreach ($students as $student)
-                            <span class="#">{{ $student->classes->teacher }}</span>
-                        @endforeach
+                        {{-- @foreach ($students as $student) --}}
+                            <span class="#">{{ $teacher->teacher }}</span>
+                        {{-- @endforeach --}}
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-10">
                         <div class="avatar avatar my-3">
-                            <img src="{{ asset('source/assets/images/faces/3.jpg') }}" alt="Face 1">
+                            <img src="{{ asset('images/'. $student->image) }}" style="object-fit: cover" alt="Face 1">
                             <div class="ms-3 name">
                                 <span class="#">{{$student->name}}</span>
                             </div>

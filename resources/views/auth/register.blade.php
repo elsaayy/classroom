@@ -15,7 +15,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html"> <h1 class="">Elsa</h1></a>
+                        <a href="index.html"> <h1 class="">ANELSALw</h1></a>
                     </div>
                     <h1 class="auth-title">Sign Up</h1>
                     <p class="auth-subtitle mb-5">Input your data to register to our website.</p>

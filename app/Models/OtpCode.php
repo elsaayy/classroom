@@ -4,18 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PharIo\Manifest\Email;
 
-class Archive extends Model
+class OtpCode extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'id',
-        'user_id',
-        'description',
-        'teacher',
-        'title',
-        'token',
-        'image',
+        'email',
+        'otp_code',
+        'expired_at',
     ];
 }

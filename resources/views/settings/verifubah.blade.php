@@ -9,17 +9,14 @@
                     @csrf
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-4">
-                                <label>Password Lama</label>
-                            </div>
                             <div class="col-md-8 form-group">
                                 <input type="password" id="passold" name="passold"
-                                    class="form-control @error('passold') is invalid          
-                                    @enderror"
-                                    value="{{ old('passold') }}" placeholder="Password Lama">
-                                @error('passold')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                class="form-control @error('passold') is invalid
+                                @enderror"
+                                value="{{ old('passold') }}" placeholder="Password Lama">
+                            @error('passold')
+                                <div class="alter alter-danger">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="col-md-4">
                                 <label>Password Baru</label>

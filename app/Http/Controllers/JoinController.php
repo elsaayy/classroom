@@ -31,8 +31,9 @@ class JoinController extends Controller
                 "token" => $classtoken->token,
                 'class_id' => $classtoken->id
             ]);
-            // Classes::where('user_id', Auth::user()->id)->update([
-            // ]);
+            User::where('id', Auth::user()->id)->update([
+                'class_id' => $classtoken->id
+            ]);
             return redirect()->route('registered.index');
         }else{
             return back()->with('eror', 'Kode tidak valid');

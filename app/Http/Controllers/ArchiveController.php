@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Archive;
+use App\Models\Classes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArchiveController extends Controller
 {
@@ -12,53 +14,33 @@ class ArchiveController extends Controller
      */
     public function index()
     {
-        $arsip = Archive::all();
+        $arsip = Archive::where('user_id', Auth::user()->id)->get();
         return view('archive.index', ['datas' => $arsip]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function reverse($id)
     {
-        //
-    }
+        $archive_class = Archive::findOrFail($id);
+        $class = Classes::insert([
+            'id' => $archive_class->id,
+            'teacher' => $archive_class->teacher,
+            'title' => $archive_class->title,
+            'description' =>$archive_class->description,
+            'token' => $archive_class->token,
+            'image' => $archive_class->image,
+            'user_id' => $archive_class->user_id
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
+        if($class){
+            Archive::where('id', $archive_class->id)->delete();
+        }
+
+        return redirect()->route('archive.index');
+    }
+    
     public function destroy($id)
     {
         Archive::findOrFail($id)->delete();

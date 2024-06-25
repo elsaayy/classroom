@@ -1,4 +1,5 @@
 @extends('main.index')
+@section('title', 'Ubah Profile')
 @section('content')
     <div class="col-md-12 col-12">
         <h4 class="card-title text-center mb-4">Ubah Profile</h4>
@@ -34,7 +35,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
-                                <label>Image</label>
+                                <label>Foto Profile</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="file" id="image"
@@ -46,8 +47,7 @@
                                 @enderror
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Ubah</button>
                             </div>
                         </div>
                     </div>

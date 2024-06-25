@@ -1,4 +1,5 @@
 @extends('main.index')
+@section('title', 'Setelan')
 @section('content')
     <div class="col-md-12 col-12">
         <div class="mb-4">
@@ -9,9 +10,9 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-center">Ubah Profile</h4>
+                            <h4 class="text-center">Ubah Profil</h4>
                             <div class="d-flex align-items-center justify-content-center">
-                              <a href="{{ route('settings.editprofile') }}" class="btn btn-outline-primary">Ubah Profile</a>
+                              <a href="{{ route('settings.editprofile') }}" class="btn btn-outline-primary">Ubah Profil</a>
                             </div>
                         </div>
                     </div>

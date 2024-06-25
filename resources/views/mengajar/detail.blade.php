@@ -1,4 +1,5 @@
 @extends('main.index')
+@section('title', $datas->title)
 @section('content')
     <!-- Basic Tables start -->
     <section class="container">

@@ -47,41 +47,30 @@ class MengajarController extends Controller
      */
     public function store(Request $request)
     {
+        $imageName = '';
+        
         $request->validate([
-            'teacher' => 'required',
             'title' => 'required',
             'description' => 'required',
             'image' => 'image|max:2048'
         ]);
 
-        if ($request->image != '') {
-            $imageName = time() . '.' . $request->image->extension();
-            $imagePath = 'images/' . $imageName;
-            $request->image->move(public_path('images'), $imageName);
 
-            Classes::create([
-                'teacher' => $request->teacher,
-                'title' => $request->title,
-                'description' => $request->description,
-                'user_id' => Auth::user()->id,
-                'image' => $imageName,
-                'token' => Str::random(5)
-            ]);
+        if ($request->image !== null) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
         }
-        $create = Classes::create([
-            'teacher' => $request->teacher,
+
+        Classes::create([
+            'teacher' => Auth::user()->name,
             'title' => $request->title,
             'description' => $request->description,
             'user_id' => Auth::user()->id,
-            'image' => $request->image,
+            'image' => ($imageName != '') ? $imageName : NULL,
             'token' => Str::random(5)
         ]);
 
-        $create->save();
-
-        if ($create) {
-            return redirect()->route('mengajar.index')->with(['success' => 'Success']);
-        }
+        return redirect()->route('mengajar.index')->with(['success' => 'Success']);
     }
 
     public function destroy($id)
@@ -92,6 +81,9 @@ class MengajarController extends Controller
             'teacher' => $class->teacher,
             'description' => $class->description,
             'title' => $class->title,
+            'user_id' => $class->user_id,
+            'image' => $class->image,
+            'token' => $class->token,
         ]);
         $class->delete();
         return redirect()->route('mengajar.index')->with(['success' => 'Success']);

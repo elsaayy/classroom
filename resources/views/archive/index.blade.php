@@ -1,7 +1,7 @@
 {{-- PAGE CONTENT --}}
 
 @extends('main.index')
-@section('title', 'Mengajar')
+@section('title', 'Arsip Kelas')
 @section('content')
     <div class="page-content">
         <section class="row">
@@ -22,21 +22,24 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-between bg-white p-3">
-                            <button type="submit" class="btn btn-success m-0" data-bs-toggle="modal"
-                                data-bs-target="#modalHapus{{$data->id}}">Kembalikan</button>
-                            <button type="submit" class="btn btn-danger m-0" data-bs-toggle="modal"
-                                data-bs-target="#modalHapus{{$data->id}}">Hapus</button>
-                            
+                            <form action="{{ route('archive.reverse', $data->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success m-0" name="reverse">Batal Arsip</button>
+                                <button type="button" class="btn btn-danger m-0" data-bs-toggle="modal"
+                                    data-bs-target="#modalHapus{{ $data->id }}">Hapus</button>
+                            </form>
                         </div>
                     </div>
                 </div>
                 {{-- Modal --}}
-                <div class="modal fade" id="modalHapus{{$data->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalHapus{{ $data->id }}" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Yakin ingin menghapus data?</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Batal"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Batal"></button>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -52,6 +55,6 @@
             @endforeach
         </section>
 
-        
+
     </div>
 @endsection

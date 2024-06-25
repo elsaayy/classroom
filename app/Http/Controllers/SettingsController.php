@@ -68,7 +68,7 @@ class SettingsController extends Controller
         $user = Auth::user();
 
         if (!Hash::check($request->passold, $user->password)) {
-            return back()->withErrors(['passold' => 'Password is incorrect']);
+            return back()->withErrors(['passold' => 'Password Lama Salah']);
         }
         User::where('id', Auth::user()->id)->update([
             'password' => Hash::make($request->passnew)
@@ -77,6 +77,11 @@ class SettingsController extends Controller
         // $user->password = Hash::make($request->passnew);
         // $user->save();
 
-        return redirect()->route('settings.index')->with('success', 'Password changed successfully.');
+        return redirect()->route('settings.index')->with('success', 'Password Berhasil Diubah.');
+    }
+
+    public function forgotpass()
+    {
+        return view('settings.lupapass');
     }
 }

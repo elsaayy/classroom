@@ -23,7 +23,7 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-white p-3">
                         <a class="m-0 text-decoration-none" href="{{route ('students.index', $data->id) }}">Jumlah Siswa : {{ $data->users_count }}</a>
-                        <a class="m-0 text-decoration-none" href="#">Total Tugas : 7</a>
+                        {{-- <a class="m-0 text-decoration-none" href="#">Total Tugas : 7</a> --}}
                     </div>
                 </div>
             </div>
